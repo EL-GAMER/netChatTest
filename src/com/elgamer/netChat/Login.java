@@ -11,7 +11,7 @@ class Login extends LoginUI
 
     Login(Stage primaryStage)
     {
-        initialize();
+        super();
         loginScene = new Scene(root);
 
         loginStage = primaryStage;
@@ -24,4 +24,9 @@ class Login extends LoginUI
         loginStage.show();
     }
 
+    @Override
+    void initialize()
+    {
+
+    }
 }

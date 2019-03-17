@@ -10,7 +10,7 @@ abstract class LoginUI
     private Button btn1;
     private TextField textField;
 
-    void initialize()
+    LoginUI()
     {
         btn1 = new Button();
         btn1.setText("Click Me!");
@@ -24,6 +24,7 @@ abstract class LoginUI
 
     }
 
+    abstract void initialize();
 
 
 }
