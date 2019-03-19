@@ -20,6 +20,7 @@ public class Login extends JFrame
     private JLabel lblAddressDesc;
     private JLabel lblPortDesc;
 
+    //gui, when click the button it launches the new ClientWindow with parameter
     public Login() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

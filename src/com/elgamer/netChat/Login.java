@@ -4,29 +4,28 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-class Login extends LoginUI
+class Login extends LoginUI {
+private Stage loginStage;
+private Scene loginScene;
+
+Login(Stage primaryStage)
 {
-    private Stage loginStage;
-    private Scene loginScene;
+    super();
+    loginScene = new Scene(root);
 
-    Login(Stage primaryStage)
-    {
-        super();
-        loginScene = new Scene(root);
+    loginStage = primaryStage;
+    loginStage.setTitle("Login");
+    loginStage.setScene(loginScene);
+}
 
-        loginStage = primaryStage;
-        loginStage.setTitle("Login");
-        loginStage.setScene(loginScene);
-    }
+public void show()
+{
+    loginStage.show();
+}
 
-    public void show()
-    {
-        loginStage.show();
-    }
+@Override
+void initialize()
+{
 
-    @Override
-    void initialize()
-    {
-
-    }
+}
 }

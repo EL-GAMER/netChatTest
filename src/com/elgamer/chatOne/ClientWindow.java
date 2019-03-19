@@ -146,20 +146,11 @@ public class ClientWindow extends JFrame implements Runnable {
         listen();
     }
 
-    private void send(String message, boolean text) {
-        if (message.equals("")) return;
-        if (text) {
-            message = client.getName() + ": " + message;
-            message = "/m/" + message + "/e/";
-            txtMessage.setText("");
-        }
-        client.send(message.getBytes());
-    }
-
-    public void listen() {
+    private void listen() {
         listen = new Thread("Listen") {
             public void run() {
                 while (running) {
+                    //
                     String message = client.receive();
                     if (message.startsWith("/c/")) {
                         client.setID(Integer.parseInt(message.split("/c/|/e/")[1]));
@@ -175,10 +166,21 @@ public class ClientWindow extends JFrame implements Runnable {
                         String[] u = message.split("/u/|/n/|/e/");
                         users.update(Arrays.copyOfRange(u, 1, u.length - 1));
                     }
+                    //
                 }
             }
         };
         listen.start();
+    }
+
+    private void send(String message, boolean text) {
+        if (message.equals("")) return;
+        if (text) {
+            message = client.getName() + ": " + message;
+            message = "/m/" + message + "/e/";
+            txtMessage.setText("");
+        }
+        client.send(message.getBytes());
     }
 
     public void console(String message) {
